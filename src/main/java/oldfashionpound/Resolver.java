@@ -16,6 +16,12 @@ import java.util.stream.Collectors;
 
 public class Resolver {
 
+  private static final String MAX_TWO_OPERANDS = "Max 2 operands allowed at the moment.";
+
+  private Resolver() {
+
+  }
+
   //TODO Not a professional parser, really basic and amatorial, fragile. Need to create one more powerful!
   // (maybe that accepts more than 2 params, parenthesis etc...).
   // (Also i personally hate if-elseif-else logic...Not SOLID).
@@ -24,7 +30,7 @@ public class Resolver {
       List<String> splittedExpression = Arrays.stream(expression.split("\\+")).map(String::trim)
           .collect(Collectors.toList());
       if (splittedExpression.size() > 2)
-        throw new UnsupportedOperationException("Max 2 operands allowed at the moment.");
+        throw new UnsupportedOperationException();
 
       Amount a = parseString(splittedExpression.get(0));
       Amount b = parseString(splittedExpression.get(1));
@@ -35,7 +41,7 @@ public class Resolver {
       List<String> splittedExpression = Arrays.stream(expression.split("-")).map(String::trim)
           .collect(Collectors.toList());
       if (splittedExpression.size() > 2)
-        throw new UnsupportedOperationException("Max 2 operands allowed at the moment.");
+        throw new UnsupportedOperationException(MAX_TWO_OPERANDS);
 
       Amount a = parseString(splittedExpression.get(0));
       Amount b = parseString(splittedExpression.get(1));
@@ -46,24 +52,24 @@ public class Resolver {
       List<String> splittedExpression = Arrays.stream(expression.split("\\*")).map(String::trim)
           .collect(Collectors.toList());
       if (splittedExpression.size() > 2)
-        throw new UnsupportedOperationException("Max 2 operands allowed at the moment.");
+        throw new UnsupportedOperationException(MAX_TWO_OPERANDS);
 
       Amount a = parseString(splittedExpression.get(0));
 
       Result result = new Mul(a, new BigInteger(splittedExpression.get(1))).eval();
       return result.toString();
-    } else if(expression.contains("/")) {
+    } else if (expression.contains("/")) {
       List<String> splittedExpression = Arrays.stream(expression.split("/")).map(String::trim)
           .collect(Collectors.toList());
       if (splittedExpression.size() > 2)
-        throw new UnsupportedOperationException("Max 2 operands allowed at the moment.");
+        throw new UnsupportedOperationException(MAX_TWO_OPERANDS);
 
       Amount a = parseString(splittedExpression.get(0));
 
       Result result = new Div(a, new BigInteger(splittedExpression.get(1))).eval();
       return result.toString();
     }
-    throw new UnsupportedOperationException("Invalid Operation.");
+    throw new UnsupportedOperationException(MAX_TWO_OPERANDS);
   }
 
   private static Amount parseString(String s) {
