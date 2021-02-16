@@ -19,7 +19,7 @@ public class Div implements Operation {
     public Result eval() {
         if (divisor.compareTo(BigInteger.ZERO) > 0) {
             BigInteger pennies = a.toPennies().divide(divisor);
-            BigInteger remainderInPennies = pennies.remainder(divisor);
+            BigInteger remainderInPennies = a.toPennies().remainder(divisor);
             Amount amount = new Amount(BigInteger.ZERO, BigInteger.ZERO, pennies);
             Amount remainder = new Amount(BigInteger.ZERO, BigInteger.ZERO, remainderInPennies);
             amount.round();

@@ -88,9 +88,9 @@ public class Amount {
     if (!this.shillings.equals(BigInteger.ZERO))
       stringBuilder.append(this.shillings).append("s ");
     if (!this.pennies.equals(BigInteger.ZERO))
-      stringBuilder.append(this.pennies).append("d ");
+      stringBuilder.append(this.pennies).append("d");
 
-    return stringBuilder.toString();
+    return stringBuilder.toString().trim();
   }
 
 }

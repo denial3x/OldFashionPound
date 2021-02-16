@@ -37,7 +37,7 @@ public class Result {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(amount.toString());
         if (!remainder.isEmpty()) {
-            stringBuilder.append("( ");
+            stringBuilder.append(" ( ");
             stringBuilder.append(this.remainder.toString());
             stringBuilder.append(" )");
         }
