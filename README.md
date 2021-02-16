@@ -65,7 +65,7 @@ java -jar oldfashionpound-x.x-SNAPSHOT.jar "5p 2s 2d / 3"
 ```
 _Output:_
 `1p 14s ( 2d )`
-
+---
 ## Contributing
 Pull requests are welcome. For major changes or any ideas please open an issue first to discuss what you would like to change or implement.
 
