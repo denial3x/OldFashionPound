@@ -1,8 +1,7 @@
-package oldfashionpound.operation;
+package com.oldfashionpound.operation;
 
-import oldfashionpound.Operation;
-import oldfashionpound.model.Amount;
-import oldfashionpound.model.Result;
+import com.oldfashionpound.model.Amount;
+import com.oldfashionpound.model.Result;
 
 import java.math.BigInteger;
 

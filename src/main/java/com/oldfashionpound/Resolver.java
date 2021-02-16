@@ -1,11 +1,11 @@
-package oldfashionpound;
+package com.oldfashionpound;
 
-import oldfashionpound.model.Amount;
-import oldfashionpound.model.Result;
-import oldfashionpound.operation.Diff;
-import oldfashionpound.operation.Div;
-import oldfashionpound.operation.Mul;
-import oldfashionpound.operation.Sum;
+import com.oldfashionpound.model.Result;
+import com.oldfashionpound.operation.Div;
+import com.oldfashionpound.operation.Sum;
+import com.oldfashionpound.model.Amount;
+import com.oldfashionpound.operation.Diff;
+import com.oldfashionpound.operation.Mul;
 
 import java.math.BigInteger;
 import java.util.Arrays;
@@ -69,7 +69,7 @@ public class Resolver {
       Result result = new Div(a, new BigInteger(splittedExpression.get(1))).eval();
       return result.toString();
     }
-    throw new UnsupportedOperationException(MAX_TWO_OPERANDS);
+    throw new UnsupportedOperationException("Invalid Operation.");
   }
 
   private static Amount parseString(String s) {
@@ -87,7 +87,6 @@ public class Resolver {
       return new BigInteger(matcher.group(0));
 
     return BigInteger.ZERO;
-
   }
 
   private static BigInteger getShillingFromString(String s) {
@@ -97,7 +96,6 @@ public class Resolver {
       return new BigInteger(matcher.group(0));
 
     return BigInteger.ZERO;
-
   }
 
   private static BigInteger getPenniesFromString(String s) {
@@ -107,6 +105,5 @@ public class Resolver {
       return new BigInteger(matcher.group(0));
 
     return BigInteger.ZERO;
-
   }
 }

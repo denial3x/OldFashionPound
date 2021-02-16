@@ -1,7 +1,7 @@
-package oldfashionpound.operation;
+package com.oldfashionpound.operation;
 
-import oldfashionpound.model.Amount;
-import oldfashionpound.model.Result;
+import com.oldfashionpound.model.Result;
+import com.oldfashionpound.model.Amount;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
@@ -10,37 +10,38 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
-class DiffTest {
+class MulTest {
 
   @Test
-  void withNormalAmounts() {
+  void withNormalAmountAndMultiplier() {
     Amount a = new Amount(BigInteger.valueOf(5), BigInteger.valueOf(17), BigInteger.valueOf(8));
-    Amount b = new Amount(BigInteger.valueOf(3), BigInteger.valueOf(4), BigInteger.valueOf(10));
-    Result eval = new Diff(a, b).eval();
+    BigInteger multiplier = BigInteger.valueOf(2);
+    Result eval = new Mul(a, multiplier).eval();
 
     assertThat(eval, is(notNullValue()));
-    assertThat(eval.getAmount(), is(new Amount(BigInteger.valueOf(2), BigInteger.valueOf(12), BigInteger.valueOf(10))));
+    assertThat(eval.getAmount(), is(new Amount(BigInteger.valueOf(11), BigInteger.valueOf(15), BigInteger.valueOf(4))));
     assertThat(eval.getRemainder(), is(new Amount(BigInteger.ZERO, BigInteger.ZERO, BigInteger.ZERO)));
   }
 
   @Test
-  void withZeroAmounts() {
+  void withZeroMultiplier() {
     Amount a = new Amount(BigInteger.valueOf(5), BigInteger.valueOf(17), BigInteger.valueOf(8));
-    Amount b = new Amount(BigInteger.valueOf(0), BigInteger.valueOf(0), BigInteger.valueOf(0));
-    Result eval = new Diff(a, b).eval();
+    BigInteger multiplier = BigInteger.valueOf(0);
+    Result eval = new Mul(a, multiplier).eval();
 
     assertThat(eval, is(notNullValue()));
-    assertThat(eval.getAmount(), is(a));
+    assertThat(eval.getAmount(), is(new Amount(BigInteger.valueOf(0), BigInteger.valueOf(0), BigInteger.valueOf(0))));
     assertThat(eval.getRemainder(), is(new Amount(BigInteger.ZERO, BigInteger.ZERO, BigInteger.ZERO)));
   }
 
-  @Test void negativeResult() {
+  @Test
+  void withNegativeMultiplier() {
     Amount a = new Amount(BigInteger.valueOf(5), BigInteger.valueOf(17), BigInteger.valueOf(8));
-    Amount b = new Amount(BigInteger.valueOf(7), BigInteger.valueOf(12), BigInteger.valueOf(8));
-    Result eval = new Diff(a, b).eval();
+    BigInteger multiplier = BigInteger.valueOf(-2);
+    Result eval = new Mul(a, multiplier).eval();
 
     assertThat(eval, is(notNullValue()));
-    assertThat(eval.getAmount(), is(new Amount(BigInteger.valueOf(1).negate(), BigInteger.valueOf(15).negate(), BigInteger.ZERO)));
+    assertThat(eval.getAmount(), is(new Amount(BigInteger.valueOf(11).negate(), BigInteger.valueOf(15).negate(), BigInteger.valueOf(4).negate())));
     assertThat(eval.getRemainder(), is(new Amount(BigInteger.ZERO, BigInteger.ZERO, BigInteger.ZERO)));
   }
 }

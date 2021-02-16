@@ -1,4 +1,4 @@
-package oldfashionpound.model;
+package com.oldfashionpound.model;
 
 import java.math.BigInteger;
 

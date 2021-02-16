@@ -1,4 +1,4 @@
-package oldfashionpound;
+package com.oldfashionpound;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
