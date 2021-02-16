@@ -42,32 +42,43 @@ The result of the expression will be printed out on the console.
 ```bash
 java -jar oldfashionpound-x.x-SNAPSHOT.jar "5p 2s 2d + 2p 4s 2d"
 ```
-_Output:_
-`7p 6s 4d`
+_Output:_ `7p 6s 4d`
+
 ---
+
 **Subtraction**
 ```bash
 java -jar oldfashionpound-x.x-SNAPSHOT.jar "5p 2s 2d - 2p 4s 2d"
 ```
-_Output:_
-`2p 18s`
+_Output:_ `2p 18s`
+
 ---
+
 **Multiplication**
 ```bash 
 java -jar oldfashionpound-x.x-SNAPSHOT.jar "5p 2s 2d * 2"
 ```
-_Output:_
-`10p 4s 4d`
+_Output:_ `10p 4s 4d`
+
 ---
+
 **Division**
 ```bash 
 java -jar oldfashionpound-x.x-SNAPSHOT.jar "5p 2s 2d / 3"
 ```
 _Output:_
 `1p 14s ( 2d )`
----
+
+
 ## Contributing
-Pull requests are welcome. For major changes or any ideas please open an issue first to discuss what you would like to change or implement.
+Pull requests are welcome. For major changes or any ideas please open an issue first to discuss what you would like to 
+change or implement.
+
+## To-Do List
+
+- [ ] Create a more powerful **Parser** that allows to process any expression (more than 2 operation, maybe able to 
+parse parenthesis).
+- [ ] Implements other operations (like **pow**, **sqrt**)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
